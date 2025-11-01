@@ -1,0 +1,88 @@
+I want to do deductive coding (code with codebook)
+You said:
+segments_aligned.json
+File
+DEDUCTIVE_SYSTEM_PROMPT = """
+You are an expert qualitative methodologist (Braun & Clarke aligned). 
+1) Analyze the transcript according to the codes listed for each theme.
+2) List segment IDs and verbatim quotes as evidence for each code within the themes.
+3) List codes as evidence for each theme. Each code and its evidence should be listed according to its theme.
+4) Make only claims backed by transcript evidence.
+5) Cite segment IDs for every quote.
+6) Output valid JSON exactly as specified.
+7) Cite all instances of each code.
+"""
+
+RECURRENT_CODING_RULES_PROMPT = """
+Recurrent Coding Rules:
+1) All codes and themes must have supporting evidence of segment ID and verbatim quotes.
+2) Cite as many quotes, whether explicit or implied, to each code.
+3) Coding should be unbiased, based only on what is stated in the transcript.
+4) Each transcript segment can support one, multiple, or no codes.
+5) Both the LLM and researchers conducting the analysis should be blinded to each other's output.
+6) JSON hygiene: Valid JSON only; include '_model' and '_run_id'; no trailing commas.
+7) Do not code researcher quotes labelled "R"
+"""
+
+TASK_SPEC_PROMPT = """
+TaskSpec(Inputs,Outputs,Constraints,Metrics):
+INPUTS - Transcript text: <SEGMENTS_JSON>
+OUTPUT(JSON OBJECT):
+{
+    "_model": "<model_name>",
+    "_run_id": "<run_id>",
+    "themes": [
+        {
+            "label": "TailoringCare forMultimorbidity",
+            "codes": [
+                {
+                    "label": "Needforpersonalisation",
+                    "instances": [
+                        {"segment_id": "<T###>", "quote": "<verbatim_quote_here>"}
+                    ]
+                },
+                {
+                    "label": "Patientexpertise",
+                    "instances": [
+                        {"segment_id": "<T###>", "quote": "<verbatim_quote_here>"}
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Perceptionsof theHealthSystem",
+            "codes": [
+                {"label": "Trust/mistrust", "instances": [{"segment_id": "<T###>", "quote": "<verbatim_quote_here>"}]},
+                {"label": "Carefragmentation", "instances": [{"segment_id": "<T###>", "quote": "<verbatim_quote_here>"}]}
+            ]
+        },
+        {
+            "label": "RoleofAIinHealthcare",
+            "codes": [
+                {"label": "Systemintegration", "instances": [{"segment_id": "<T###>", "quote": "<verbatim_quote_here>"}]},
+                {"label": "HumanvAIinteractionsinhealthcare", "instances": [{"segment_id": "<T###>", "quote": "<verbatim_quote_here>"}]}
+            ]
+        },
+        {
+            "label": "DataSecurityandEthicsinAI",
+            "codes": [
+                {"label": "Privacyanddataconcerns", "instances": [{"segment_id": "<T###>", "quote": "<verbatim_quote_here>"}]},
+                {"label": "Consentandtransparency", "instances": [{"segment_id": "<T###>", "quote": "<verbatim_quote_here>"}]}
+            ]
+        },
+        {
+            "label": "GroupCohesion",
+            "codes": [
+                {"label": "Positivepeersupport", "instances": [{"segment_id": "<T###>", "quote": "<verbatim_quote_here>"}]}
+            ]
+        },
+        {
+            "label": "Co-production",
+            "codes": [
+                {"label": "Collaborativeinvolvementofpatientsindesign", "instances": [{"segment_id": "<T###>", "quote": "<verbatim_quote_here>"}]}
+            ]
+        }
+    ]
+}
+
+"""

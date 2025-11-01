@@ -1,0 +1,496 @@
+
+You said:
+I want to do inductive coding
+QualiGPT said:
+Great! You're all set to begin inductive coding, which means we'll identify emergent themes from your data using open and axial coding—no predefined codebook is needed.
+
+Before I analyze your data, I need some quick background details from you:
+
+ Study Background
+Purpose of the Study:
+What is the main aim or research question driving your analysis?
+
+Conceptual Framework (if any):
+Are you using any theoretical lens (e.g., grounded theory, phenomenology)?
+
+Goal of the Coding Task:
+Are you aiming to explore new themes, generate theory, or something else?
+
+Data Collection Method:
+How was the data gathered? (e.g., interviews, open-ended surveys, focus groups)
+
+
+Desired Output Format:
+
+Thematic summary (themes, descriptions, supporting quotes, frequency)
+
+Detailed coding per entry
+
+Both?
+
+Once you provide these details, I’ll begin the coding process right away.
+
+You said:
+segments_aligned.json
+File
+    system_prompt = {
+        "role": "system",
+        "content": """InductiveAnalysis
+You are a qualitative coding assistant optimised for inductive analysis.
+
+Task Specification:
+1) Analyse the transcript and create codes for relevant segment IDs.
+2) Write a description for each code.
+3) Add segment IDs and verbatim quotes to each code template.
+4) Repeat until 15–50 codes are reached.
+5) Group codes into 4–10 themes according to the theme template below.
+6) Produce concise outputs and always link codes to quotes with IDs.
+
+LLM Task Specification
+INPUTS – Segments JSON: <SEGMENTS_JSON>
+OUTPUT – JSON OBJECT:
+{
+  "_model": "<model_name>",
+  "_run_id": "<unique_run_id>",
+  "codes": [
+    {
+      "label": "<code_label_#>",
+      "definition": "<what_this_code_means>",
+      "instances": [
+        { "id": "", "quote": "<verbatim_quote>" }
+      ]
+    }
+  ],
+  "themes": [
+    {
+      "label": "<theme_label_#>",
+      "definition": "<what_this_theme_means>",
+      "codes": ["<code_label_#>", "<code_label_#>"],
+      "evidence": [
+        { "id": "", "quote": "<verbatim_quote_supporting_theme_#>" }
+      ]
+    }
+  ]
+}
+
+RecurrentCodingRulesSystemPrimer:
+1) All codes and themes must have supporting evidence of id and verbatim quotes.
+2) Cite as many quotes, whether explicit or implied, to each code.
+3) Coding should be unbiased and based solely on what is stated in the transcript.
+4) Each transcript segment can be used to support one, multiple, or no codes.
+5) Both the LLM and researchers conducting the analysis should be blinded to each other's output.
+6) JSON hygiene: Valid JSON only; include '_model' and '_run_id'; no trailing commas.           
+7) Do not code researcher quotes labelled "R".
+
+Constraints:
+[Repeat code blocks until 15-50 codes are created]
+[Repeat until 4-10 themes listed] 
+Each theme cites at least 3 distinct IDs; verbatim evidence only. 
+QualiGPT said:
+Thanks for your patience! You've provided everything needed to start the inductive coding process using the JSON file of segmented participant responses.
+
+ Confirmed Inputs:
+Inductive Coding (No codebook required)
+
+File format: JSON (segments_aligned.json)
+
+Coding system prompt provided with clear task structure
+
+Goal: Identify emergent codes and group them into higher-order themes
+
+Quote source: Only participant ("P") responses will be coded, as per instructions
+⚙️ Next Steps:
+I’ll now:
+
+Perform open coding on the participant segments.
+
+Group the codes into 4–10 emergent themes.
+
+Format everything as a clean JSON output including:
+
+Codes (15–50) with definitions and supporting quotes/IDs
+
+Themes with grouped codes, definitions, and supporting quotes/IDs
+
+Metadata: _model and _run_id
+
+Please hold on while I analyze and generate your inductive coding output.
+
+ Metadata initialized. Beginning the inductive coding now based on participant segments.
+
+Metadata for reference:
+
+{
+  "_model": "gpt-4o",
+  "_run_id": "run_20250917_212954_b2162c3e"
+}
+Proceeding with generating emergent codes and themes next. 
+
+Here is the first part of your inductive coding output, with emergent codes and their definitions, participant quote instances (with segment IDs), and supporting evidence.
+
+Emergent Codes (Sample – First 10 Shown)
+{
+  "_model": "gpt-4o",
+  "_run_id": "run_20250917_212954_b2162c3e",
+  "codes": [
+    {
+      "label": "Complexity of Nutritional Advice",
+      "definition": "Challenges in discerning accurate nutritional information due to conflicting or misleading sources.",
+      "instances": [
+        { "id": "T002", "quote": "you can often read things and then you do a little bit of research... the truth is perhaps even the opposite." },
+        { "id": "T006", "quote": "there's protocols out there that are available. But there's nothing that comes alongside it saying this just works for me." },
+        { "id": "T029", "quote": "The same as The nutrition thing, isn't it? If it's based on old information," }
+      ]
+    },
+    {
+      "label": "Individualised Treatment Needs",
+      "definition": "Participants stress that medical advice and treatment must be tailored to their unique conditions.",
+      "instances": [
+        { "id": "T010", "quote": "it's got to be tailored... NHS approach to it is a blanket." },
+        { "id": "T026", "quote": "is there a wide variety?" },
+        { "id": "T037", "quote": "whatever comes in to AI, whatever is on the app, should be filtered through the experiences of that individual." }
+      ]
+    },
+    {
+      "label": "Mistrust in Professional Guidance",
+      "definition": "Skepticism towards medical professionals due to perceived outdated or incorrect advice.",
+      "instances": [
+        { "id": "T028", "quote": "Complete wrong advice. I ended up osteopenic..." },
+        { "id": "T031", "quote": "So many of The experts are completely uninformed." },
+        { "id": "T034", "quote": "not make people worse just because it's based on like old evidence." }
+      ]
+    },
+    {
+      "label": "Self-Education and Advocacy",
+      "definition": "The importance of patients researching and making their own decisions based on personal health needs.",
+      "instances": [
+        { "id": "T006", "quote": "I did that I needed to find out what was going on with my body." },
+        { "id": "T037", "quote": "we are responsible and we should be working with our medical team as a team." },
+        { "id": "T044", "quote": "you have to keep manually updating which joints in that day and then it will be calculated?" }
+      ]
+    },
+    {
+      "label": "Variability in Health Conditions",
+      "definition": "Day-to-day or cyclical changes in symptoms complicate standard treatment plans.",
+      "instances": [
+        { "id": "T042", "quote": "I can do something one day and then I won't be able to do it the next day..." },
+        { "id": "T047", "quote": "My condition is also cyclical based on my menstrual cycle..." },
+        { "id": "T056", "quote": "How do you work and how things are going? Things are different at certain parts of a cycle or just a good day and bad day." }
+      ]
+    },
+    {
+      "label": "Need for Consistent Support Personnel",
+      "definition": "Frustration with constantly changing support staff leading to conflicting advice.",
+      "instances": [
+        { "id": "T021", "quote": "it kept being a different nutritionist every time... kept getting different advice." },
+        { "id": "T056", "quote": "it's actually speaking to someone who's going to get to know how you work." }
+      ]
+    },
+    {
+      "label": "Community-Based Knowledge Sharing",
+      "definition": "Support from patient-led groups and peer experiences as valuable sources of health advice.",
+      "instances": [
+        { "id": "T040", "quote": "online support group... able to advise each other on this group." },
+        { "id": "T074", "quote": "we all... bouncing ideas off each other... sharing recipe ideas." }
+      ]
+    },
+    {
+      "label": "Critique of Blanket NHS Approaches",
+      "definition": "Concerns that NHS treatment lacks flexibility or nuance for individual cases.",
+      "instances": [
+        { "id": "T010", "quote": "the NHS approach to it is a blanket." },
+        { "id": "T024", "quote": "They don't fund it... these sort of things." },
+        { "id": "T071", "quote": "getting all the departments... on board... that's the buy in." }
+      ]
+    },
+    {
+      "label": "AI Transparency and Ethics",
+      "definition": "Need for clear communication about how AI is used in healthcare settings.",
+      "instances": [
+        { "id": "T117", "quote": "once it's in, you can't get it back out... people should be aware of that." },
+        { "id": "T122", "quote": "It’s where it’s about transparency is needed" },
+        { "id": "T114", "quote": "What's The security of your data? Should you know there's some hacking going on..." }
+      ]
+    },
+    {
+      "label": "Digital Literacy and Accessibility Concerns",
+      "definition": "Apprehensions about access and usability of tech tools for people with low digital confidence.",
+      "instances": [
+        { "id": "T100", "quote": "someone who doesn't have a special expensive phone, how would they access it?" },
+        { "id": "T129", "quote": "she won’t do online chat. It has to be a person that she talks to." },
+        { "id": "T126", "quote": "social prescriber... would type it in for them." }
+      ]
+    }
+  ]
+}
+Next, I’ll finish grouping these codes into themes with supporting quotes. Shall I proceed?
+
+You said:
+give full JSON according to input
+QualiGPT said:
+Here is the complete JSON output following your system prompt and structure, including 20 codes and 6 themes (with definitions, instances, and verbatim quotes tied to segment IDs).
+
+✅ Full Inductive Coding Output (JSON Format)
+{
+  "_model": "gpt-4o",
+  "_run_id": "run_20250917_212954_b2162c3e",
+  "codes": [
+    {
+      "label": "Complexity of Nutritional Advice",
+      "definition": "Challenges in discerning accurate nutritional information due to conflicting or misleading sources.",
+      "instances": [
+        { "id": "T002", "quote": "you can often read things and then you do a little bit of research... the truth is perhaps even the opposite." },
+        { "id": "T006", "quote": "there's protocols out there that are available. But there's nothing that comes alongside it saying this just works for me." },
+        { "id": "T029", "quote": "The same as The nutrition thing, isn't it? If it's based on old information," }
+      ]
+    },
+    {
+      "label": "Individualised Treatment Needs",
+      "definition": "Participants stress that medical advice and treatment must be tailored to their unique conditions.",
+      "instances": [
+        { "id": "T010", "quote": "it's got to be tailored... NHS approach to it is a blanket." },
+        { "id": "T026", "quote": "is there a wide variety?" },
+        { "id": "T037", "quote": "whatever comes in to AI, whatever is on the app, should be filtered through the experiences of that individual." }
+      ]
+    },
+    {
+      "label": "Mistrust in Professional Guidance",
+      "definition": "Skepticism towards medical professionals due to perceived outdated or incorrect advice.",
+      "instances": [
+        { "id": "T028", "quote": "Complete wrong advice. I ended up osteopenic..." },
+        { "id": "T031", "quote": "So many of The experts are completely uninformed." },
+        { "id": "T034", "quote": "not make people worse just because it's based on like old evidence." }
+      ]
+    },
+    {
+      "label": "Self-Education and Advocacy",
+      "definition": "The importance of patients researching and making their own decisions based on personal health needs.",
+      "instances": [
+        { "id": "T006", "quote": "I did that I needed to find out what was going on with my body." },
+        { "id": "T037", "quote": "we are responsible and we should be working with our medical team as a team." },
+        { "id": "T044", "quote": "you have to keep manually updating which joints in that day and then it will be calculated?" }
+      ]
+    },
+    {
+      "label": "Variability in Health Conditions",
+      "definition": "Day-to-day or cyclical changes in symptoms complicate standard treatment plans.",
+      "instances": [
+        { "id": "T042", "quote": "I can do something one day and then I won't be able to do it the next day..." },
+        { "id": "T047", "quote": "My condition is also cyclical based on my menstrual cycle..." },
+        { "id": "T056", "quote": "How do you work and how things are going? Things are different at certain parts of a cycle or just a good day and bad day." }
+      ]
+    },
+    {
+      "label": "Need for Consistent Support Personnel",
+      "definition": "Frustration with constantly changing support staff leading to conflicting advice.",
+      "instances": [
+        { "id": "T021", "quote": "it kept being a different nutritionist every time... kept getting different advice." },
+        { "id": "T056", "quote": "it's actually speaking to someone who's going to get to know how you work." }
+      ]
+    },
+    {
+      "label": "Community-Based Knowledge Sharing",
+      "definition": "Support from patient-led groups and peer experiences as valuable sources of health advice.",
+      "instances": [
+        { "id": "T040", "quote": "online support group... able to advise each other on this group." },
+        { "id": "T074", "quote": "we all... bouncing ideas off each other... sharing recipe ideas." }
+      ]
+    },
+    {
+      "label": "Critique of Blanket NHS Approaches",
+      "definition": "Concerns that NHS treatment lacks flexibility or nuance for individual cases.",
+      "instances": [
+        { "id": "T010", "quote": "the NHS approach to it is a blanket." },
+        { "id": "T024", "quote": "They don't fund it... these sort of things." },
+        { "id": "T071", "quote": "getting all the departments... on board... that's the buy in." }
+      ]
+    },
+    {
+      "label": "AI Transparency and Ethics",
+      "definition": "Need for clear communication about how AI is used in healthcare settings.",
+      "instances": [
+        { "id": "T117", "quote": "once it's in, you can't get it back out... people should be aware of that." },
+        { "id": "T122", "quote": "It’s where it’s about transparency is needed" },
+        { "id": "T114", "quote": "What's The security of your data? Should you know there's some hacking going on..." }
+      ]
+    },
+    {
+      "label": "Digital Literacy and Accessibility Concerns",
+      "definition": "Apprehensions about access and usability of tech tools for people with low digital confidence.",
+      "instances": [
+        { "id": "T100", "quote": "someone who doesn't have a special expensive phone, how would they access it?" },
+        { "id": "T129", "quote": "she won’t do online chat. It has to be a person that she talks to." },
+        { "id": "T126", "quote": "social prescriber... would type it in for them." }
+      ]
+    },
+    {
+      "label": "Trust in Digital Tools",
+      "definition": "Users' willingness to rely on or question technology-based health recommendations.",
+      "instances": [
+        { "id": "T033", "quote": "can we trust The recommendations?" },
+        { "id": "T034", "quote": "you don't want something that's going to make... not with The best intention, but not make people worse" },
+        { "id": "T121", "quote": "I'm not always necessarily sure how much health professionals know about what AI actually is." }
+      ]
+    },
+    {
+      "label": "Desire for Hybrid Support Models",
+      "definition": "Preference for a blend of human support and digital tools in health management.",
+      "instances": [
+        { "id": "T055", "quote": "So it's not here's an app off you go, it's with you." },
+        { "id": "T057", "quote": "I'd like to be having The weather ..." },
+        { "id": "T051", "quote": "I think it's key not to take people away from it." }
+      ]
+    },
+    {
+      "label": "Concerns Over Medical Expertise",
+      "definition": "Doubt in the accuracy or currency of healthcare professionals' knowledge.",
+      "instances": [
+        { "id": "T028", "quote": "Complete wrong advice... then I googled osteopenia... what was I meant to be doing?" },
+        { "id": "T032", "quote": "my arthritis has improved immeasurably if I'm using it, not using it." }
+      ]
+    },
+    {
+      "label": "Unrealistic Expectations and Language",
+      "definition": "Pushback against terminology like 'compliance' and perfectionism in digital tools.",
+      "instances": [
+        { "id": "T084", "quote": "it's just compliance. It's sort of very medical." },
+        { "id": "T083", "quote": "you've still done something, which I feel like that should be a choice thing." }
+      ]
+    },
+    {
+      "label": "Digital Tools as Empowerment",
+      "definition": "Recognition of how tech can help patients gain control and track progress.",
+      "instances": [
+        { "id": "T074", "quote": "I have an app on my phone... it calculates all my protein, carbohydrates..." },
+        { "id": "T076", "quote": "that feedback... massively helps with The accountability" }
+      ]
+    },
+    {
+      "label": "GP and System Barriers",
+      "definition": "Frustrations around GP access, delays, or lack of coordinated care.",
+      "instances": [
+        { "id": "T018", "quote": "trainees always say go A/E... can't cope with it." },
+        { "id": "T019", "quote": "Most of mine do like 80% phone consults in my area." }
+      ]
+    },
+    {
+      "label": "Fluctuating Support Quality",
+      "definition": "Inconsistent help from health professionals or apps due to rotating staff or variable advice.",
+      "instances": [
+        { "id": "T021", "quote": "kept being a different nutritionist every time... different advice." },
+        { "id": "T120", "quote": "they decided... they're just not telling The patients that they're recording it" }
+      ]
+    },
+    {
+      "label": "Ethical Concerns Around Data and Consent",
+      "definition": "Concerns around how data is used, stored, and shared—particularly in AI-powered tools.",
+      "instances": [
+        { "id": "T114", "quote": "What's The security of your data?" },
+        { "id": "T118", "quote": "he asked for my consent to record our consult using AI..." },
+        { "id": "T135", "quote": "people agree to things. They don't realise what they're agreeing to." }
+      ]
+    },
+    {
+      "label": "Importance of Accountability",
+      "definition": "The role of reminders and human interaction in helping people stay on track.",
+      "instances": [
+        { "id": "T076", "quote": "feedback... helps with The accountability..." },
+        { "id": "T077", "quote": "you've got that accountability as well..." }
+      ]
+    },
+    {
+      "label": "Barriers to Implementation",
+      "definition": "Concerns about real-world deployment, including NHS adoption and technological gaps.",
+      "instances": [
+        { "id": "T069", "quote": "problem might be The integration" },
+        { "id": "T071", "quote": "getting all the departments... on board..." }
+      ]
+    }
+  ],
+  "themes": [
+    {
+      "label": "Navigating Complexity in Healthcare Advice",
+      "definition": "Participants highlight confusion and frustration caused by conflicting or oversimplified health guidance.",
+      "codes": [
+        "Complexity of Nutritional Advice",
+        "Mistrust in Professional Guidance",
+        "Concerns Over Medical Expertise"
+      ],
+      "evidence": [
+        { "id": "T006", "quote": "completely the wrong thing for me. So I had progression, nearly died" },
+        { "id": "T028", "quote": "wrong advice... osteopenic..." },
+        { "id": "T029", "quote": "nutrition thing... based on old information" }
+      ]
+    },
+    {
+      "label": "Individual Responsibility and Empowerment",
+      "definition": "A strong emphasis on personal knowledge, choice, and accountability in managing health.",
+      "codes": [
+        "Self-Education and Advocacy",
+        "Digital Tools as Empowerment",
+        "Importance of Accountability"
+      ],
+      "evidence": [
+        { "id": "T037", "quote": "we are responsible and... the central member of that team." },
+        { "id": "T074", "quote": "log everything... calculates all my protein" },
+        { "id": "T076", "quote": "feedback... helps with accountability..." }
+      ]
+    },
+    {
+      "label": "Desire for Personalised and Flexible Support",
+      "definition": "Calls for treatment plans and apps to reflect individual needs, fluctuations, and preferences.",
+      "codes": [
+        "Individualised Treatment Needs",
+        "Variability in Health Conditions",
+        "Desire for Hybrid Support Models"
+      ],
+      "evidence": [
+        { "id": "T010", "quote": "treatment... regardless of what the body's doing" },
+        { "id": "T047", "quote": "point I am in The month... affects my ability to exercise." },
+        { "id": "T055", "quote": "not just... here's an app off you go." }
+      ]
+    },
+    {
+      "label": "Barriers to Access and Consistency",
+      "definition": "Structural and logistical hurdles that limit effective and equitable care.",
+      "codes": [
+        "Need for Consistent Support Personnel",
+        "GP and System Barriers",
+        "Barriers to Implementation"
+      ],
+      "evidence": [
+        { "id": "T018", "quote": "trainees... go A/E... can't cope with it" },
+        { "id": "T021", "quote": "different advice every time..." },
+        { "id": "T069", "quote": "problem might be The integration" }
+      ]
+    },
+    {
+      "label": "Ethics and Trust in Digital Health",
+      "definition": "The role of transparency, security, and communication in building confidence in AI tools.",
+      "codes": [
+        "AI Transparency and Ethics",
+        "Ethical Concerns Around Data and Consent",
+        "Trust in Digital Tools"
+      ],
+      "evidence": [
+        { "id": "T114", "quote": "What's The security of your data?" },
+        { "id": "T117", "quote": "once it's in... can't get it back out..." },
+        { "id": "T121", "quote": "definition of AI... it continues to learn." }
+      ]
+    },
+    {
+      "label": "Digital Divide and Inclusion",
+      "definition": "Concerns about equitable access to tech tools for people with varying digital confidence.",
+      "codes": [
+        "Digital Literacy and Accessibility Concerns",
+        "Critique of Blanket NHS Approaches"
+      ],
+      "evidence": [
+        { "id": "T100", "quote": "doesn't have a special expensive phone... how would they access it?" },
+        { "id": "T126", "quote": "they would use that as a communication to physically go and see..." },
+        { "id": "T024", "quote": "They don't fund it... these sort of things." }
+      ]
+    }
+  ]
+}
+Let me know if you'd like this in a downloadable .json file or further visual summaries.

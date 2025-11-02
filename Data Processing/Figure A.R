@@ -260,5 +260,5 @@ readr::write_csv(
 )
 
 message("Wrote:\n  - ", fig_png,
-        "\n  - ", fig_pdf,
+        "\n  - ",
         "\n  - Table: ", file.path(out_dir, "forest_delta_ac1.csv"))

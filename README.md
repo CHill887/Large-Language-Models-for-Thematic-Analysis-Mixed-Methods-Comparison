@@ -1,6 +1,6 @@
 # Large Language Models for Thematic Analysis: A Mixed-Methods Comparison
 
-This repository contains R scripts used for "Large Language Models for Thematic Analysis in Healthcare Research: A Blinded Mixed-Methods Comparison with Human Analysts" 
+This repository contains code used for "Large Language Models for Thematic Analysis in Healthcare Research: A Blinded Mixed-Methods Comparison with Human Analysts" 
 
 
 ## Files
@@ -14,6 +14,7 @@ This repository contains R scripts used for "Large Language Models for Thematic 
 | `Figure B.R`                      | Produces forest plots for inductive (Likert-scale) data.                                                               |
 | `Table 4 - Quote verification.R`  | Summarizes coding agreement and quote-level verification outcomes.                                                     |
 
+LLM inputs are contained in the corresponding folder.
 
 ## Citation
 
